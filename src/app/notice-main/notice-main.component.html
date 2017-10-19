@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <h3>Online License Renewal System</h3>
+  <span class="example-fill-remaining-space"></span>
+
+  <span *ngIf="currentUser?.username" class="top-right">
+    <a (click)="generateNotice()" disabled="send"><mat-icon matTooltip="Click to Generate Notice!">{{send ? "":"send"}}</mat-icon></a>
+    <mat-icon matTooltip="Welcome Officer!">account_circle</mat-icon>
+    <a class="nav-link"
+       routerLinkActive="active" (click)="logout()">
+      <mat-icon matTooltip="click to logout!">power_settings_new</mat-icon>
+    </a>
+  </span>
+</mat-toolbar>
+<div class="notice-main-container">
+  <mat-tab-group>
+    <mat-tab label="Send Notices">
+      <app-send-notice></app-send-notice>
+    </mat-tab>
+    <mat-tab label="Update Notices">
+      <app-update-notice></app-update-notice>
+    </mat-tab>
+    <mat-tab label="Extend Notices">
+      <app-extend-notice></app-extend-notice>
+    </mat-tab>
+    <mat-tab label="Undo Notices">
+      <app-total-notice></app-total-notice>
+    </mat-tab>
+    <mat-tab label="All Licenses">
+      <app-license></app-license>
+    </mat-tab>
+  </mat-tab-group>
+</div>

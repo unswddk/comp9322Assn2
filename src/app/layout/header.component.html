@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="full-width">
+<h3>Online License Renewal System</h3>
+  <div  *ngIf="currentUser?.username" style="float:right">
+    <mat-icon>admin</mat-icon>
+    <a class="nav-link"
+       routerLinkActive="active" (click)="logout()">
+      logout
+    </a>
+  </div>
+</mat-toolbar>

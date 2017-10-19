@@ -1,0 +1,15 @@
+.nav-link {
+  cursor:pointer;
+}
+.send_notices{
+  color: #3f51b5;
+  float: right;
+}
+a:hover{
+  text-decoration: none;
+}
+.home-page{
+  border-top: solid #3f51b5;
+  margin:8% 35%;
+  width: 400px;
+}

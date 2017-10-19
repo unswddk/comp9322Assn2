@@ -1,0 +1,14 @@
+.driver-steps{
+  margin: 20px 20px;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.update-form{
+  width: 50%;
+}

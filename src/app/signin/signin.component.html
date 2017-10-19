@@ -1,0 +1,47 @@
+<div class="signin-form">
+  <form #signinForm="ngForm" (ngSubmit)="signIn()">
+    <mat-input-container class="full-width">
+      <input
+        matInput
+        name="email"
+        required
+        [(ngModel)]="signinData.email"
+        #email="ngModel"
+        placeholder="email"
+        value="">
+    </mat-input-container>
+    <small
+      *ngIf="email.errors && (email.dirty || email.touched) && (email.errors.required)"
+      class="form-error-msg"> Name is required
+    </small>
+
+
+    <div class="">
+      <mat-input-container class="full-width">
+        <input
+          type="password"
+          name="password"
+          required
+          matInput
+          [(ngModel)]="signinData.password"
+          #password="ngModel"
+          placeholder="Password"
+          value="">
+      </mat-input-container>
+      <small
+        *ngIf="password.errors && (password.dirty || password.touched) && (password.errors.required)"
+        class="form-error-msg"> Password is required
+      </small>
+    </div>
+
+    <div class="pb-1">
+      <mat-checkbox
+        name="rememberMe"
+        [(ngModel)]="signinData.rememberMe">Remember Me
+      </mat-checkbox>
+      <button mat-raised-button color="primary" class="full-width" [disabled]="signinForm.invalid">
+        Sign in
+      </button>
+    </div>
+  </form>
+</div>

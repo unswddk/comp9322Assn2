@@ -1,0 +1,7 @@
+<form [formGroup]="rejectFormGroup">
+  <mat-form-field style="width: 100%">
+    <textarea matInput placeholder="Please Give Reject Reason" formControlName="reason" required style="width: 100%;height: 180px"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Close</button>
+  <button mat-raised-button color="primary" (click)="onReject()">Summit</button>
+</form>

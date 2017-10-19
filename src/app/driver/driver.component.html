@@ -1,0 +1,74 @@
+<mat-toolbar color="primary">
+  <h3>Online License Renewal System</h3>
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+
+<div class="driver-steps">
+  <mat-horizontal-stepper>
+    <mat-step>
+      <ng-template matStepLabel>Confirm License Information</ng-template>
+      <!--<mat-form-field>-->
+      <!--<input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
+      <!--</mat-form-field>-->
+      <h4> {{license?.name}}</h4>
+      <p>ExpiryDate: {{license?.expiryDate|date:"dd-MM-yyyy" }}</p>
+      <p>LicenceClass: {{ license?.licenseClass}}</p>
+      <p>Number: {{ license?.number}}</p>
+      <p>Address: {{ license?.address}}</p>
+      <p>Email: {{ license?.email}}</p>
+      <div>
+        <button mat-raised-button color="primary" [disabled]="first()" (click)="openDialog()">update</button>
+        <button mat-raised-button color="primary" matStepperNext (click)="loadData()" >Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Extend License ExpiryDate</ng-template>
+        <mat-select placeholder="Extend Period">
+          <h4> {{license?.name}}</h4>
+          <p><mat-icon>date_range</mat-icon><span>ExpiryDate: {{license?.expiryDate|date:"dd-MM-yyyy" }}</span></p>
+          <p><mat-icon>portrait</mat-icon>LicenceClass: {{ license?.licenseClass}}</p>
+          <p><mat-icon>rate_review</mat-icon>Number: {{ license?.number}}</p>
+          <p><mat-icon>my_location</mat-icon>Address: {{ license?.address}}</p>
+          <p><mat-icon>email</mat-icon>Email: {{ license?.email}}</p>
+        </mat-select>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" [disabled]="second()" (click)="extend(apiNotice)"><span matTooltip="Extend 5 Years only $1000!">Extend</span></button>
+          <button mat-raised-button color="primary" matStepperNext (click)="loadData()">Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Make a Payment</ng-template>
+        <strong *ngIf="apiNotice?.status!=='paid'">Your need to Pay {{apiNotice?.status==="extended" ? "$1000": "200"}}</strong><p>
+
+        <mat-form-field >
+          <input matInput placeholder="Amount"  formControlName="payment">
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-raised-button color="accent" [disabled]="validateAmount()" (click)="pay()">Pay</button>
+          <button mat-raised-button color="primary" matStepperNext (click)="loadData()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="!isLinear">
+      <ng-template matStepLabel>Done</ng-template>
+      <div *ngIf="apiNotice?.status==='paid'">
+      <h4> {{ license?.name }}</h4>
+      <p>ExpiryDate: {{ license?.expiryDate|date:"dd-MM-yyyy" }}</p>
+      <p>LicenceClass: {{ license?.licenseClass }}</p>
+      <p>Number: {{ license?.number}}</p>
+      <p>Email:{{license?.email}}</p>
+      <p>Address:{{license?.address}}</p>
+      <p>{{rejection !== "" ? "Reject Reason: "+apiNotice?.rejectionReason : ""}}</p>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="warn" [disabled]="doneDisable()" (click)="done(apiNotice)">Done</button>
+      </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

@@ -1,0 +1,81 @@
+<div fxLayout="row">
+  <div fxFlex="50">
+    <div fxLayout="column">
+      <mat-card *ngFor="let notice of apiNoticeList" class="card">
+        <mat-card-title>Notice Information</mat-card-title>
+        <table style="margin-left: 10px">
+          <tr>
+            <td>ID:</td>
+            <td>{{notice?.noticeId}}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{notice?.email}}</td>
+          </tr>
+          <tr>
+            <td>Number:</td>
+            <td>{{notice?.licenseNumber}}</td>
+          </tr>
+          <tr>
+            <td>address:</td>
+            <td>{{notice?.address}}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td>{{notice?.status}}</td>
+          </tr>
+          <tr>
+            <td>Location:</td>
+            <td>{{notice?.location}}</td>
+          </tr>
+          <tr>
+            <td>
+              <button mat-button color="primary" (click)="accept(notice)">Accept</button>
+            </td>
+            <td>
+              <button mat-button color="warn" (click)="openRejectDialog(notice)">Reject</button>
+            </td>
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+  <div fxFlex="50">
+    <div fxLayout="column">
+      <mat-card *ngFor="let license of licenseList" class="card">
+        <mat-card-title >License Information</mat-card-title>
+        <table style="width: 100%">
+          <tr>
+            <td>Name:</td>
+            <td>{{license?.name}}</td>
+          </tr>
+          <tr>
+            <td>EDate:</td>
+            <td>{{license?.expiryDate | date:"dd-MM-yyyy"}}</td>
+          </tr>
+          <tr>
+            <td>Number:</td>
+            <td>{{license?.number}}</td>
+          </tr>
+          <tr>
+            <td>address:</td>
+            <td>{{license?.address}}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{license?.email}}</td>
+          </tr>
+          <tr>
+            <td>licenseClass:</td>
+            <td>{{license?.licenseClass}}</td>
+          </tr>
+          <tr>
+            <td>Noticed:</td>
+            <td>{{license?.noticed}}</td>
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

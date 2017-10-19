@@ -1,0 +1,59 @@
+<!--<div class="example-container mat-elevation-z8">-->
+  <!--<mat-table #table [dataSource]="dataSource" matSort>-->
+
+    <!--&lt;!&ndash;- Note that these columns can be defined in any order.-->
+          <!--The actual rendered columns are set as a property on the row definition" &ndash;&gt;-->
+
+    <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+    <!--<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
+  <!--</mat-table>-->
+<!--</div>-->
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="ExpiryDate">
+      <mat-header-cell *matHeaderCellDef > Expiry Date </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.expiryDate | date:"MM-dd-yyyy"}} </mat-cell>
+    </ng-container>
+    <!-- Progress Column -->
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Email">
+      <mat-header-cell *matHeaderCellDef > Email </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Address">
+      <mat-header-cell *matHeaderCellDef > Address </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Number">
+      <mat-header-cell *matHeaderCellDef > Number </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.number}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="LicenseClass">
+    <mat-header-cell *matHeaderCellDef > License Class </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.licenseClass}} </mat-cell>
+  </ng-container>
+
+    <ng-container matColumnDef="Noticed">
+      <mat-header-cell *matHeaderCellDef >Noticed </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.noticed}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

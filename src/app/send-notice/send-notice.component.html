@@ -1,0 +1,32 @@
+<div *ngFor="let  license of licenseList">
+  <mat-card class="notice-lice-card" *ngIf="license">
+  <strong>License Information</strong><button mat-button  color="primary" class="send-notice-btn" (click)="sendNotice(license)">Send Notice
+  </button>
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td>{{license.name}}</td>
+    </tr>
+    <tr>
+      <td>EDate:</td>
+      <td>{{license.expiryDate | date:"dd-MM-yyyy"}}</td>
+    </tr>
+    <tr>
+      <td>Number:</td>
+      <td>{{license.number}}</td>
+    </tr>
+    <tr>
+      <td>address:</td>
+      <td>{{license.address}}</td>
+    </tr>
+    <tr>
+      <td>licenseClass:</td>
+      <td>{{license.licenseClass}}</td>
+    </tr>
+    <tr>
+      <td>Noticed:</td>
+      <td>{{license.noticed}}</td>
+    </tr>
+  </table>
+</mat-card>
+</div>
