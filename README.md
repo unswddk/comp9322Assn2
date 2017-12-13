@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 https://unswddk.github.io/comp9322Assn2/driver
 
 ##officer page demo
-https://unswddk.github.io/comp9322Assn2/notice
+https://unswddk.github.io/comp9322Assn2/home
