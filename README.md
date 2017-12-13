@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ## Driver Page demo
-[Driver](https://unswddk.github.io/comp9322Assn2/driver）
+[Driver](https://unswddk.github.io/comp9322Assn2/driver)
 
 ## officer page demo
 [Officer](https://unswddk.github.io/comp9322Assn2/home)
